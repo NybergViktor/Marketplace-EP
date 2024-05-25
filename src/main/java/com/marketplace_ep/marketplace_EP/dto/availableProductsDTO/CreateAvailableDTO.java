@@ -1,24 +1,12 @@
-package com.marketplace_ep.marketplace_EP.models;
+package com.marketplace_ep.marketplace_EP.dto.availableProductsDTO;
 
 import com.marketplace_ep.marketplace_EP.enums.ECategory;
 import com.marketplace_ep.marketplace_EP.enums.ESize;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "availableProduct")
-public class AvailableProduct {
-    // title string
-    // description string
-    // price int
-    // color string
-    // category array enum
-    // isActive boolean
-    // isAvailable boolean
-    @Id
-    private String id;
+public class CreateAvailableDTO {
     private String title;
     private String description;
     private int price;
@@ -26,13 +14,6 @@ public class AvailableProduct {
 
     public List<ESize> size = new ArrayList<>();
     public List<ECategory> categoryList = new ArrayList<>();
-    private boolean isActive;
-    private boolean isAvailable;
-
-    public AvailableProduct() {
-        isActive = true;
-        isAvailable = true;
-    }
 
 
     public String getTitle() {
@@ -83,23 +64,4 @@ public class AvailableProduct {
         this.categoryList = categoryList;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
-    public String getId() {
-        return id;
-    }
 }
