@@ -1,11 +1,16 @@
 package com.marketplace_ep.marketplace_EP.models;
 
+import com.marketplace_ep.marketplace_EP.enums.ECategory;
+import com.marketplace_ep.marketplace_EP.enums.ESize;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "orderProduct")
-public class orderProduct {
+public class OrderProduct {
 
 
     // title int
@@ -21,12 +26,13 @@ public class orderProduct {
 
     private String description;
     private int price;
-    private double size;
+
+    public List<ESize> size = new ArrayList<>();
     private String color;
-    private String category;
+    public List<ECategory> categoryList = new ArrayList<>();
     private boolean isActive;
     @DBRef
-    private availableProduct availableProduct;
+    private AvailableProduct availableProduct;
 
 
 }
